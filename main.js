@@ -191,7 +191,7 @@
 //     console.log(i);
 // }
 
-var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
+// var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
 //
 // for (var v = 0; v < names.length; v++) {
 //     console.log(names[v]);
@@ -200,9 +200,33 @@ var names = ['John', 'Jane', 'Mary', 'Mark', 'Bob'];
 // for (var f = names.length - 1; f >= 0; f--) {
 //     console.log(names[f]);
 // }
+//
+// var g = 0;
+// while (g < names.length) {
+//     console.log(names[g]);
+//     g++;
+// }
 
-var g = 0;
-while (g < names.length) {
-    console.log(names[g]);
-    g++;
+calculateAge(1965);
+
+function calculateAge(year) {
+    console.log(2016 - year);
+    console.log(this);
 }
+
+var john = {
+    name: 'John',
+    yearOfBirth: 1990,
+    calculateAge: function () {
+        console.log(this);
+        console.log(2016 - this.yearOfBirth);
+
+        function innerFunction() {
+            console.log(this);
+        }
+
+        innerFunction();
+    }
+};
+
+john.calculateAge();
